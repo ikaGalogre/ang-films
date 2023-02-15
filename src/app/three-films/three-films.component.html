@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <h1 class="header">Three films story</h1>
+  <div class="container">
+    <input
+      class="input"
+      [(ngModel)]="input1"
+      placeholder="Enter film name..."
+    />
+    <input
+      class="input"
+      [(ngModel)]="input2"
+      placeholder="Enter film name..."
+    />
+    <input
+      class="input"
+      [(ngModel)]="input3"
+      placeholder="Enter film name..."
+    />
+    <button class="button" id="searchThree" (click)="onSearchThree()">
+      Search
+    </button>
+
+    <div id="chosenThree"></div>
+    <div id="chosenThree2"></div>
+  </div>
+</div>

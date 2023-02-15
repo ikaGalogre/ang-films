@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: black;
+  color: white;
+}
+* {
+  list-style: none;
+  text-decoration: none;
+}
+.nav {
+  margin-top: 50px;
+  text-align: center;
+}
+.nav-link {
+  font-size: 30px;
+  margin: 10px;
+}
+.wrapper {
+  margin-top: 50px;
+  text-align: center;
+}
+.input {
+  height: 30px;
+  width: 300px;
+  border: none;
+}
+.button {
+  height: 30px;
+  width: 70px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background-color: gray;
+}
+.sp {
+  font-size: 20px;
+  color: aqua;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 300px;
+  align-items: center;
+  gap: 30px;
+}
+.discribe {
+  height: 100%;
+  text-align: start;
+}
