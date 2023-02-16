@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <h1 class="header">Favourite Films</h1>
+  <div class="content" *ngFor="let movie of movie$ | async">
+    <img class="poster_img" [src]="movie.Poster" alt="Poster" />
+    <div>
+      <span class="sp">{{ movie.Title }}</span>
+      <p class="desfilm" [routerLink]="['/fav', movie.Title, 'details']">
+        See Full Description 😎
+      </p>
+    </div>
+  </div>
+</div>

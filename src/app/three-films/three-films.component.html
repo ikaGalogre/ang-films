@@ -3,24 +3,27 @@
   <div class="container">
     <input
       class="input"
-      [(ngModel)]="input1"
+      [formControl]="search1"
       placeholder="Enter film name..."
     />
     <input
       class="input"
-      [(ngModel)]="input2"
+      [formControl]="search2"
       placeholder="Enter film name..."
     />
     <input
       class="input"
-      [(ngModel)]="input3"
+      [formControl]="search3"
       placeholder="Enter film name..."
     />
     <button class="button" id="searchThree" (click)="onSearchThree()">
       Search
     </button>
-
-    <div id="chosenThree"></div>
-    <div id="chosenThree2"></div>
+  </div>
+  <div id="totalRuntime" *ngIf="totalRuntime">
+    <span class="sp">Total Runtime: </span> {{ totalRuntime }} min
+  </div>
+  <div id="totalRuntime" *ngIf="totalPopulation">
+    <span class="sp">Total Population is: </span> {{ totalPopulation }}
   </div>
 </div>

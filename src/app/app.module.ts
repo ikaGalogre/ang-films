@@ -8,9 +8,14 @@ import { AppComponent } from './app.component';
 import { FilmInfoComponent } from './film-info/film-info.component';
 import { ThreeFilmsComponent } from './three-films/three-films.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { API_BASE } from './tokens';
+import { environment } from 'src/environments/environment';
+import { FavFilmsComponent } from './fav-films/fav-films.component';
+import { AddFilmComponent } from './add-film/add-film.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
-  declarations: [AppComponent, FilmInfoComponent, ThreeFilmsComponent],
+  declarations: [AppComponent, FilmInfoComponent, ThreeFilmsComponent, FavFilmsComponent, AddFilmComponent, DetailsComponent],
   imports: [
     BrowserModule,
     RouterModule,
@@ -19,7 +24,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: API_BASE,
+      useValue: environment.apiBase,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

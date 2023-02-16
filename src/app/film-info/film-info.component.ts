@@ -3,10 +3,12 @@ import { FormControl } from '@angular/forms';
 import {
   debounceTime,
   distinctUntilChanged,
+  forkJoin,
   Observable,
   switchMap,
+  tap,
 } from 'rxjs';
-import { filmApiService } from '../films-api.service';
+import { FilmApiService } from '../films-api.service';
 import { Country, Movie } from '../types/interfaces';
 
 @Component({
@@ -16,15 +18,23 @@ import { Country, Movie } from '../types/interfaces';
 })
 export class FilmInfoComponent implements OnInit {
   movie$: Observable<Movie> | undefined;
-  country: Country | undefined;
+  country$: Observable<Country[]> | undefined;
   search = new FormControl();
-  constructor(private api: filmApiService) {}
+  constructor(private api: FilmApiService) {}
 
   ngOnInit(): void {
     this.movie$ = this.search.valueChanges.pipe(
       debounceTime(500),
       distinctUntilChanged(),
-      switchMap((na) => this.api.getFilmData(na))
+      switchMap((name) => this.api.getFilmData(name)),
+      tap((movieData: Movie) => {
+        const countries = movieData.Country.split(',').map((c) => c.trim());
+        console.log(countries);
+        this.country$ = forkJoin(
+          countries.map((country) => this.api.getCountryData(country))
+        );
+        this.country$.subscribe((data) => console.log(data));
+      })
     );
   }
 }

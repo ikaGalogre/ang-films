@@ -1,0 +1,14 @@
+<div class="container" *ngIf="movie">
+  <img class="poster" [src]="movie.Poster" alt="Poster" />
+  <div class="discribe">
+    <span class="sp">{{ movie.Title }}</span>
+    <p><span class="sp">This movie was released in:</span> {{ movie.Year }}</p>
+    <p><span class="sp">Actors and actresses are:</span> {{ movie.Actors }}</p>
+    <p><span class="sp">This movie was made in:</span> {{ movie.Country }}</p>
+    <p><span class="sp">Runtime is:</span> {{ movie.Runtime }}</p>
+    <p><span class="sp">Description is:</span> {{ movie.Des }}</p>
+    <p><span class="sp">Movies rating is:</span> {{ movie.Rat }}</p>
+
+    <button (click)="deleteFilm(movie.id)" class="delete">Delete</button>
+  </div>
+</div>

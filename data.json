@@ -1,0 +1,59 @@
+{
+  "films": [
+    {
+      "Title": "The Sopranos",
+      "Actors": "James Gandolfini, Lorraine Bracco, Edie Falco",
+      "Rat": 10,
+      "Des": "dhjsdkldkdsn",
+      "id": 3,
+      "Poster": "https://m.media-amazon.com/images/M/MV5BZGJjYzhjYTYtMDBjYy00OWU1LTg5OTYtNmYwOTZmZjE3ZDdhXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg",
+      "Country": "United States",
+      "Year": "1999–2007",
+      "Runtime": "55 min"
+    },
+    {
+      "Title": "Dune",
+      "Actors": "Timothée Chalamet, Rebecca Ferguson, Zendaya",
+      "Rat": 10,
+      "Des": "dsjhds sdkjdsdsbn dsdskjds",
+      "id": 5,
+      "Poster": "https://m.media-amazon.com/images/M/MV5BN2FjNmEyNWMtYzM0ZS00NjIyLTg5YzYtYThlMGVjNzE1OGViXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+      "Country": "Canada, United States",
+      "Year": "2021",
+      "Runtime": "155 min"
+    },
+    {
+      "Title": "Avatar",
+      "Actors": "Sam Worthington, Zoe Saldana, Sigourney Weaver",
+      "Rat": 10,
+      "Des": "sdhjdshj sdjkdssd",
+      "id": 6,
+      "Poster": "https://m.media-amazon.com/images/M/MV5BZDA0OGQxNTItMDZkMC00N2UyLTg3MzMtYTJmNjg3Nzk5MzRiXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
+      "Country": "United States",
+      "Year": "2009",
+      "Runtime": "162 min"
+    },
+    {
+      "Title": "Tangerines",
+      "Actors": "Lembit Ulfsak, Elmo Nüganen, Giorgi Nakashidze",
+      "Rat": 10,
+      "Des": "sjdkdskj",
+      "id": 8,
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMTgwNzA3MDQzOV5BMl5BanBnXkFtZTgwNTE5MDE5NDE@._V1_SX300.jpg",
+      "Country": "Estonia, Georgia",
+      "Year": "2013",
+      "Runtime": "87 min"
+    },
+    {
+      "Title": "Death Note",
+      "Actors": "Mamoru Miyano, Brad Swaile, Vincent Tong",
+      "Rat": 9,
+      "Des": "jdkds dsdsklmnds",
+      "id": 9,
+      "Poster": "https://m.media-amazon.com/images/M/MV5BNjRiNmNjMmMtN2U2Yi00ODgxLTk3OTMtMmI1MTI1NjYyZTEzXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_SX300.jpg",
+      "Country": "Japan",
+      "Year": "2006–2007",
+      "Runtime": "24 min"
+    }
+  ]
+}

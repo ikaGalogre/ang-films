@@ -1,4 +1,5 @@
 <div class="wrapper">
+  <h1 class="header">Search Movie</h1>
   <input
     class="input"
     [formControl]="search"
@@ -7,19 +8,29 @@
     #movieName
   />
   <div class="container" *ngIf="movie$ | async as movie">
-    <img class="poster" [src]="movie.Poster" alt="Flag" />
+    <img class="poster" [src]="movie.Poster" alt="Poster" />
     <div class="discribe">
-      <span class="sp"> {{ movie.Title }}</span>
+      <span class="sp">{{ movie.Title }}</span>
       <p>
-        <span class="sp">This movie was released in: </span> {{ movie.Year }}
+        <span class="sp">This movie was released in:</span> {{ movie.Year }}
       </p>
-      <p><span class="sp">Actors and actress are:</span> {{ movie.Actors }}</p>
+      <p>
+        <span class="sp">Actors and actresses are:</span> {{ movie.Actors }}
+      </p>
       <p><span class="sp">This movie was made in:</span> {{ movie.Country }}</p>
-      <p><span class="sp">Currencies:</span> {{ country?.currencies?.[0] }}</p>
-      <div>
-        <span class="sp">Flag is:</span>
-        <img class="flag" [src]="country?.flags?.png" alt="Flag" />
+      <div *ngIf="country$ | async as countries">
+        <p>
+          <span class="sp">Currencies:</span>
+          <!-- {{ countries[0].currencies[0] }} -->
+        </p>
+        <div>
+          <span class="sp">Flag is:</span>
+          <!-- <img class="flag" [src]="countries[0].flags.png" alt="Flag" /> -->
+        </div>
       </div>
+      <p class="addfilm" [routerLink]="['/film', movie.Title, 'add']">
+        Add Film to Favourites List 😎
+      </p>
     </div>
   </div>
 </div>

@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div>
+    <span class="text">Write your opinion about this film:</span>
+    <input type="text" placeholder="text here..." [(ngModel)]="description" />
+  </div>
+  <div>
+    <span class="text">Rate this film 1-10:</span>
+    <input
+      type="number"
+      min="1"
+      max="10"
+      [(ngModel)]="rating"
+      placeholder="1-10"
+    />
+  </div>
+  <div>
+    <button class="but" (click)="addFilmToFavorites()">Add as Fav</button>
+  </div>
+</div>
