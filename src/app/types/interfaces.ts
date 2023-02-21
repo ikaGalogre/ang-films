@@ -1,10 +1,12 @@
 export interface Movie {
-  Poster: string;
   Title: string;
-  Actors: string;
-  Country: string;
   Year: number;
+  Actors: string;
+  Poster: string;
+  Country: string;
   Runtime: string;
+  Population: number;
+  Countries: { flag: string; currency: string }[];
 }
 export interface Country {
   name: Name;
@@ -18,7 +20,6 @@ export interface Name {
   common: string;
 }
 export interface Currency {
-  // [key: string]: { name: string; symbol: string };
   code: string;
   name: string;
   symbol: string;

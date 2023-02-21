@@ -6,9 +6,45 @@
     <p><span class="sp">Actors and actresses are:</span> {{ movie.Actors }}</p>
     <p><span class="sp">This movie was made in:</span> {{ movie.Country }}</p>
     <p><span class="sp">Runtime is:</span> {{ movie.Runtime }}</p>
-    <p><span class="sp">Description is:</span> {{ movie.Des }}</p>
+    <p>
+      <span class="sp">Description is:</span>
+      <span *ngIf="selectedId !== movie.id"> {{ movie.Des }} </span>
+      <input
+        type="text"
+        *ngIf="selectedId === movie.id"
+        [value]="movie.Des"
+        #input
+      />
+      <button
+        class="edit"
+        *ngIf="selectedId !== movie.id"
+        (click)="editFilm(movie.id)"
+      >
+        Edit
+      </button>
+      <button
+        class="save"
+        *ngIf="selectedId === movie.id"
+        (click)="edit(movie)"
+      >
+        Save
+      </button>
+      <button
+        class="delete"
+        *ngIf="selectedId === movie.id"
+        (click)="cancelEditFilm()"
+      >
+        Cancel
+      </button>
+    </p>
     <p><span class="sp">Movies rating is:</span> {{ movie.Rat }}</p>
 
-    <button (click)="deleteFilm(movie.id)" class="delete">Delete</button>
+    <button
+      (click)="deleteFilm(movie.id)"
+      class="delete"
+      [disabled]="selectedId"
+    >
+      Delete
+    </button>
   </div>
 </div>

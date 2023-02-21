@@ -15,9 +15,13 @@ export class FilmApiService {
   ) {}
 
   getCountryData(countryName: string): Observable<Country> {
-    return this.http.get<Country>(
-      `${this.apiBase}/${countryName}?fullText=true`
-    );
+    return this.http
+      .get<Country>(`${this.apiBase}/${countryName}?fullText=true`)
+      .pipe(
+        map((e: any) => {
+          return e[0];
+        })
+      );
   }
   getFilmData(name: string): Observable<Movie> {
     return this.http.get<Movie>(
@@ -33,9 +37,16 @@ export class FilmApiService {
   getJsonData() {
     return this.http.get<jsonMovie[]>(`${environment.jsonServiceBase}/films`);
   }
-  deletejSonData(id:number) {
+  deletejSonData(id: number) {
     return this.http.delete<jsonMovie[]>(
       `${environment.jsonServiceBase}/films/${id}`
+    );
+  }
+
+  editJsonData(movie: any) {
+    return this.http.patch<any>(
+      `${environment.jsonServiceBase}/films/${movie.id}`,
+      movie
     );
   }
 }

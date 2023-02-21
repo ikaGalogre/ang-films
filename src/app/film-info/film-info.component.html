@@ -18,17 +18,28 @@
         <span class="sp">Actors and actresses are:</span> {{ movie.Actors }}
       </p>
       <p><span class="sp">This movie was made in:</span> {{ movie.Country }}</p>
-      <div *ngIf="country$ | async as countries">
-        <p>
+      <div>
+        <div>
           <span class="sp">Currencies:</span>
-          <!-- {{ countries[0].currencies[0] }} -->
-        </p>
+          <span *ngFor="let country of movie.Countries">
+            {{ country.currency }}
+          </span>
+        </div>
         <div>
           <span class="sp">Flag is:</span>
-          <!-- <img class="flag" [src]="countries[0].flags.png" alt="Flag" /> -->
+          <img
+            *ngFor="let country of movie.Countries"
+            class="flag"
+            [src]="country.flag"
+            alt="Flag"
+          />
         </div>
       </div>
-      <p class="addfilm" [routerLink]="['/film', movie.Title, 'add']">
+      <p
+        (click)="addFilm(movie)"
+        class="addfilm"
+        [routerLink]="['/film', movie.Title, 'add']"
+      >
         Add Film to Favourites List 😎
       </p>
     </div>

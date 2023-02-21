@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FilmApiService } from '../films-api.service';
 import { jsonMovie } from '../types/interfaces';
@@ -13,6 +13,8 @@ export class DetailsComponent implements OnInit {
   filmName: string | null = '';
   movie: any;
   dataService: any;
+  selectedId: any;
+  @ViewChild('input') input: ElementRef | undefined;
   constructor(
     private route: ActivatedRoute,
     private api: FilmApiService,
@@ -22,7 +24,6 @@ export class DetailsComponent implements OnInit {
     this.filmName = this.route.snapshot.paramMap.get('name');
     this.dataService = this.api.getJsonData().subscribe((data: jsonMovie[]) => {
       this.movie = data.find((movie) => movie.Title === this.filmName);
-      console.log(this.movie);
     });
   }
   deleteFilm(id: number) {
@@ -33,8 +34,32 @@ export class DetailsComponent implements OnInit {
           .getJsonData()
           .subscribe((data: jsonMovie[]) => {
             this.movie = data.find((movie) => movie.Title === this.filmName);
-            console.log(this.movie);
           }))
     );
+  }
+  editFilm(id: number) {
+    this.selectedId = id;
+  }
+  edit(movie: any) {
+    const value = this.input?.nativeElement.value;
+
+    this.api
+      .editJsonData({
+        ...movie,
+        Des: value,
+      })
+      .subscribe(
+        //reset
+        () =>
+          (this.dataService = this.api
+            .getJsonData()
+            .subscribe((data: jsonMovie[]) => {
+              this.movie = data.find((movie) => movie.Title === this.filmName);
+              this.cancelEditFilm();
+            }))
+      );
+  }
+  cancelEditFilm() {
+    this.selectedId = undefined;
   }
 }
