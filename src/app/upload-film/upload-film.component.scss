@@ -1,0 +1,45 @@
+.submitted {
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  textarea {
+    outline: none;
+    border: 1px solid grey;
+
+    &.ng-invalid {
+      border: 2px solid red;
+    }
+
+    &.ng-valid {
+      border: 2px solid rgb(88, 233, 88);
+    }
+  }
+}
+span {
+  font-size: 20px;
+}
+.inputs {
+  height: 25px;
+  width: 200px;
+  border: none;
+  margin: 10px;
+}
+.inputn {
+  height: 25px;
+  width: 60px;
+  border: none;
+  margin: 10px;
+}
+.selectt {
+  height: 25px;
+  margin: 10px;
+}
+.butt {
+  height: 30px;
+  width: 70px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background-color: gray;
+  margin: 5px;
+}

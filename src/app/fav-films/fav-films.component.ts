@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { FilmApiService } from '../films-api.service';
-import { jsonMovie } from '../types/interfaces';
+import { JsonMovie } from '../types/interfaces';
 
 @Component({
   selector: 'app-fav-films',
@@ -9,7 +9,7 @@ import { jsonMovie } from '../types/interfaces';
   styleUrls: ['./fav-films.component.scss'],
 })
 export class FavFilmsComponent implements OnInit {
-  movie$: Observable<jsonMovie[]> | undefined;
+  movie$: Observable<JsonMovie[]> | undefined;
   constructor(private api: FilmApiService) {}
 
   ngOnInit(): void {

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FilmApiService } from '../films-api.service';
-import { jsonMovie } from '../types/interfaces';
+import { JsonMovie } from '../types/interfaces';
 
 @Component({
   selector: 'app-add-film',
@@ -27,7 +27,7 @@ export class AddFilmComponent implements OnInit {
   addFilmToFavorites() {
     if (this.filmName) {
       this.api.getFilmData(this.filmName).subscribe((movie) => {
-        const newFilm: jsonMovie = {
+        const newFilm: JsonMovie = {
           Title: movie.Title,
           Actors: movie.Actors,
           Poster: movie.Poster,

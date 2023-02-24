@@ -1,0 +1,217 @@
+<div class="wrapper">
+  <form
+    [formGroup]="form"
+    (ngSubmit)="handleSubmission()"
+    [class.submitted]="isSubmitted"
+  >
+    <div>
+      <span>Film Name:</span>
+      <span>
+        <input
+          class="inputs"
+          type="text"
+          formControlName="filmName"
+          placeholder="Enter film name..."
+        />
+      </span>
+      <div
+        *ngIf="
+          form.controls['filmName'].errors &&
+          form.controls['filmName'].dirty &&
+          isSubmitted
+        "
+      >
+        <div *ngIf="form.controls['filmName'].errors['required']">
+          Film Name is required
+        </div>
+        <div *ngIf="form.controls['filmName'].errors['minlength']">
+          Film Name min length 3
+        </div>
+        <div *ngIf="form.controls['filmName'].errors['maxlength']">
+          Film Name max length 20
+        </div>
+        <div *ngIf="form.controls['filmName'].errors['isUsed']">
+          This film name is already used
+        </div>
+      </div>
+    </div>
+    <div>
+      <span>Premiere Place:</span>
+      <span>
+        <input
+          class="inputs"
+          type="text"
+          formControlName="premierPlace"
+          placeholder="Enter premiere location..."
+        />
+      </span>
+      <div
+        *ngIf="
+          form.controls['premierPlace'].errors &&
+          form.controls['premierPlace'].dirty &&
+          isSubmitted
+        "
+      >
+        <div *ngIf="form.controls['premierPlace'].errors['required']">
+          place is required
+        </div>
+      </div>
+    </div>
+    <div>
+      <span>Release Date:</span>
+      <span>
+        <input
+          class="inputs"
+          type="date"
+          id="date"
+          name="date"
+          formControlName="date"
+        />
+      </span>
+      <div
+        *ngIf="
+          form.controls['date'].errors &&
+          form.controls['date'].dirty &&
+          isSubmitted
+        "
+      >
+        <div *ngIf="form.controls['date'].errors['required']">
+          date is required
+        </div>
+        <div *ngIf="form.controls['date'].errors['futureDate']">
+          choose only future dates
+        </div>
+      </div>
+    </div>
+    <div>
+      <span>Country:</span>
+      <span formArrayName="countries">
+        <div
+          *ngFor="
+            let countryControl of form.controls.countries?.controls;
+            let i = index
+          "
+        >
+          <select class="selectt" [formControl]="countryControl">
+            <option [value]="''" hidden>Select coutry</option>
+            <option
+              *ngFor="
+                let country of countriess$
+                  | countries : form.value.countries : countryControl.value
+              "
+              [value]="country"
+            >
+              {{ country }}
+            </option>
+          </select>
+          <button
+            class="butt"
+            (click)="removeCountryControl(i)"
+            [disabled]="removeBtnDisabled"
+          >
+            -
+          </button>
+          <button
+            class="butt"
+            type="button"
+            (click)="addCountryControl()"
+            [disabled]="plusBtnDisabled"
+          >
+            +
+          </button>
+        </div>
+      </span>
+    </div>
+    <div>
+      <span>Genre:</span>
+      <span>
+        <select class="selectt" formControlName="genre">
+          <option [value]="null" selected hidden>Select</option>
+          <option [value]="genre.Action">
+            {{ genre.Action }}
+          </option>
+          <option [value]="genre.Comedy">{{ genre.Comedy }}</option>
+          <option [value]="genre.SciFi">{{ genre.SciFi }}</option>
+        </select>
+      </span>
+    </div>
+
+    <div>
+      <span>Movie or Tv-show:</span>
+      <span>
+        <input
+          type="radio"
+          id="tv"
+          [value]="movOrTv.Tv"
+          name="movOrTv"
+          formControlName="movOrTv"
+        />
+        <label for="tv"> tv</label>
+      </span>
+      <span>
+        <input
+          type="radio"
+          id="film"
+          [value]="movOrTv.Film"
+          name="movOrTv"
+          formControlName="movOrTv"
+        />
+        <label for="film"> film</label>
+      </span>
+    </div>
+
+    <div *ngIf="isFilm()">
+      <label for="filmDuration">Movie duration:</label>
+      <input
+        class="inputn"
+        type="number"
+        id="filmDuration"
+        name="filmDuration"
+        formControlName="filmDuration"
+        placeholder="Duration..."
+      />
+      <div
+        *ngIf="
+          form.controls['filmDuration'] &&
+          form.controls['filmDuration'].errors &&
+          form.controls['filmDuration'].dirty &&
+          isSubmitted
+        "
+      >
+        <div *ngIf="form.controls['filmDuration'].errors['required']">
+          duration is required
+        </div>
+        <div *ngIf="form.controls['filmDuration'].errors['max']">
+          max 190min
+        </div>
+        <div *ngIf="form.controls['filmDuration'].errors['min']">min 60min</div>
+      </div>
+    </div>
+
+    <div *ngIf="isTv()">
+      <label for="tvDuration">Series number:</label>
+      <input
+        class="inputn"
+        type="number"
+        id="tvDuration"
+        name="tvDuration"
+        formControlName="tvDuration"
+        placeholder="Series..."
+      />
+      <div
+        *ngIf="
+          form.controls['tvDuration'] &&
+          form.controls['tvDuration'].errors &&
+          form.controls['tvDuration'].dirty &&
+          isSubmitted
+        "
+      >
+        <div *ngIf="form.controls['tvDuration'].errors['required']">
+          Number of Series is required
+        </div>
+        <div *ngIf="form.controls['tvDuration'].errors['min']">min 5series</div>
+      </div>
+    </div>
+    <button class="butt" type="submit">Add Film</button>
+  </form>
+</div>

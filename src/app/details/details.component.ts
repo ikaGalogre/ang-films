@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FilmApiService } from '../films-api.service';
-import { jsonMovie } from '../types/interfaces';
+import { JsonMovie } from '../types/interfaces';
 
 @Component({
   selector: 'app-details',
@@ -22,7 +22,7 @@ export class DetailsComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.filmName = this.route.snapshot.paramMap.get('name');
-    this.dataService = this.api.getJsonData().subscribe((data: jsonMovie[]) => {
+    this.dataService = this.api.getJsonData().subscribe((data: JsonMovie[]) => {
       this.movie = data.find((movie) => movie.Title === this.filmName);
     });
   }
@@ -32,7 +32,7 @@ export class DetailsComponent implements OnInit {
       () =>
         (this.dataService = this.api
           .getJsonData()
-          .subscribe((data: jsonMovie[]) => {
+          .subscribe((data: JsonMovie[]) => {
             this.movie = data.find((movie) => movie.Title === this.filmName);
           }))
     );
@@ -53,7 +53,7 @@ export class DetailsComponent implements OnInit {
         () =>
           (this.dataService = this.api
             .getJsonData()
-            .subscribe((data: jsonMovie[]) => {
+            .subscribe((data: JsonMovie[]) => {
               this.movie = data.find((movie) => movie.Title === this.filmName);
               this.cancelEditFilm();
             }))

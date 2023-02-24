@@ -13,9 +13,22 @@ import { environment } from 'src/environments/environment';
 import { FavFilmsComponent } from './fav-films/fav-films.component';
 import { AddFilmComponent } from './add-film/add-film.component';
 import { DetailsComponent } from './details/details.component';
+import { UploadFilmComponent } from './upload-film/upload-film.component';
+import { CustomFilmComponent } from './custom-film/custom-film.component';
+import { CountriesPipe } from './countries.pipe';
 
 @NgModule({
-  declarations: [AppComponent, FilmInfoComponent, ThreeFilmsComponent, FavFilmsComponent, AddFilmComponent, DetailsComponent],
+  declarations: [
+    AppComponent,
+    FilmInfoComponent,
+    ThreeFilmsComponent,
+    FavFilmsComponent,
+    AddFilmComponent,
+    DetailsComponent,
+    UploadFilmComponent,
+    CustomFilmComponent,
+    CountriesPipe,
+  ],
   imports: [
     BrowserModule,
     RouterModule,

@@ -4,7 +4,7 @@
       "Title": "The Sopranos",
       "Actors": "James Gandolfini, Lorraine Bracco, Edie Falco",
       "Rat": 10,
-      "Des": "sjksskj skjskjsn sjks snms",
+      "Des": "sjksskj skjskjsn sjks snms shjsn",
       "id": 3,
       "Poster": "https://m.media-amazon.com/images/M/MV5BZGJjYzhjYTYtMDBjYy00OWU1LTg5OTYtNmYwOTZmZjE3ZDdhXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg",
       "Country": "United States",
@@ -43,6 +43,21 @@
       "Country": "Japan",
       "Year": "2006–2007",
       "Runtime": "24 min"
+    }
+  ],
+  "custom": [
+    {
+      "filmName": "dnbdsbs",
+      "premierPlace": "sdjnsdsdn",
+      "countries": [
+        "country3"
+      ],
+      "date": "2023-02-16",
+      "genre": "Comedy",
+      "movOrTv": "film",
+      "tvDuration": 22,
+      "filmDuration": 111,
+      "id": 3
     }
   ]
 }

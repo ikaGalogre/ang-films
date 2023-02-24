@@ -55,4 +55,10 @@ export class FilmInfoComponent implements OnInit {
       })
     );
   }
+  addFilm(movie: any) {
+    // this.blaSerice.payload = movie;
+    console.log(movie);
+
+    // this.router.navigateByUrl("['/film', movie.Title, 'add']");
+  }
 }
