@@ -122,19 +122,6 @@
         </div>
       </span>
     </div>
-    <div>
-      <span>Genre:</span>
-      <span>
-        <select class="selectt" formControlName="genre">
-          <option [value]="null" selected hidden>Select</option>
-          <option [value]="genre.Action">
-            {{ genre.Action }}
-          </option>
-          <option [value]="genre.Comedy">{{ genre.Comedy }}</option>
-          <option [value]="genre.SciFi">{{ genre.SciFi }}</option>
-        </select>
-      </span>
-    </div>
 
     <div>
       <span>Movie or Tv-show:</span>
@@ -209,8 +196,18 @@
         <div *ngIf="form.controls['tvDuration'].errors['required']">
           Number of Series is required
         </div>
-        <div *ngIf="form.controls['tvDuration'].errors['min']">min 5series</div>
+        <div *ngIf="form.controls['tvDuration'].errors['min']">
+          min 5 series
+        </div>
       </div>
+    </div>
+    <div>
+      <span>Rate Film: </span>
+      <app-rating [maxRating]="10" formControlName="rating"></app-rating>
+    </div>
+    <div>
+      <span>Genres: </span>
+      <app-genres [genres]="genres" formControlName="genre"></app-genres>
     </div>
     <button class="butt" type="submit">Add Film</button>
   </form>

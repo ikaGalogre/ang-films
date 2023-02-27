@@ -47,16 +47,55 @@
   ],
   "custom": [
     {
-      "filmName": "dnbdsbs",
-      "premierPlace": "sdjnsdsdn",
+      "filmName": "sasajksakj",
+      "premierPlace": "asjksajjksa",
       "countries": [
-        "country3"
+        "country6"
       ],
-      "date": "2023-02-16",
-      "genre": "Comedy",
+      "date": "2023-02-02",
+      "genre": "SciFi",
       "movOrTv": "film",
-      "tvDuration": 22,
-      "filmDuration": 111,
+      "tvDuration": 7,
+      "filmDuration": 88,
+      "rating": 7,
+      "id": 1
+    },
+    {
+      "filmName": "jhdhd",
+      "premierPlace": "djdhjd",
+      "countries": [
+        "country4"
+      ],
+      "date": "2023-02-10",
+      "genre": [
+        "horror",
+        "horror",
+        "drama",
+        "action"
+      ],
+      "movOrTv": "film",
+      "tvDuration": 44,
+      "filmDuration": 77,
+      "rating": 8,
+      "id": 2
+    },
+    {
+      "filmName": "jdjkds",
+      "premierPlace": "dsjkdskds",
+      "countries": [
+        "country5"
+      ],
+      "date": "2023-02-03",
+      "genre": [
+        "horror",
+        "drama",
+        "action",
+        "adventure"
+      ],
+      "movOrTv": "film",
+      "tvDuration": 88,
+      "filmDuration": 88,
+      "rating": 10,
       "id": 3
     }
   ]

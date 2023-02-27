@@ -39,7 +39,11 @@ export interface JsonMovie {
   id: number;
 }
 
-export enum Genre {
+export interface Genre {
+  icon: string;
+  label: string;
+}
+export enum Genresss {
   Action = 'Action',
   Comedy = 'Comedy',
   SciFi = 'SciFi',
@@ -55,8 +59,9 @@ export interface FilmForm {
   premierPlace: FormControl<string | null>;
   countries?: FormArray<FormControl<string | null>>;
   date: FormControl<Date | null>;
-  genre: FormControl<Genre | null>;
+  genre: FormControl<string[] | null>;
   movOrTv: FormControl<MovOrTv | null>;
   tvDuration?: FormControl<number | null>;
   filmDuration?: FormControl<number | null>;
+  rating: FormControl<number | null>;
 }

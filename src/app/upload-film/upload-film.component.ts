@@ -1,4 +1,3 @@
-import { NonNullAssert } from '@angular/compiler';
 import { Component } from '@angular/core';
 import {
   FormBuilder,
@@ -9,7 +8,7 @@ import {
 import { Observable } from 'rxjs';
 import { alreadyUsedName, dateValidator } from '../app.validator';
 import { FilmApiService } from '../films-api.service';
-import { FilmForm, MovOrTv, Genre } from '../types/interfaces';
+import { FilmForm, MovOrTv, Genresss, Genre } from '../types/interfaces';
 
 @Component({
   selector: 'app-upload-film',
@@ -17,13 +16,33 @@ import { FilmForm, MovOrTv, Genre } from '../types/interfaces';
   styleUrls: ['./upload-film.component.scss'],
 })
 export class UploadFilmComponent {
-  genre = Genre;
   movOrTv = MovOrTv;
   isSubmitted = false;
   id: number = 0;
   countries: string[] = [];
   countriess$: Observable<any[]> | undefined;
-
+  genres: Genre[] = [
+    {
+      label: 'comedy',
+      icon: '😊',
+    },
+    {
+      label: 'horror',
+      icon: '💀',
+    },
+    {
+      label: 'drama',
+      icon: '😔',
+    },
+    {
+      label: 'adventure',
+      icon: '⚔️',
+    },
+    {
+      label: 'action',
+      icon: '🔫',
+    },
+  ];
   form: FormGroup<FilmForm> = this.buildForm();
 
   search = new FormControl('');
@@ -73,8 +92,8 @@ export class UploadFilmComponent {
       premierPlace: this.fb.control('', [Validators.required]),
       countries: this.fb.array([new FormControl('')]),
       date: this.fb.control(null, [Validators.required, dateValidator()]),
-      genre: this.fb.control(null),
-      movOrTv: this.fb.control(MovOrTv.Tv, [Validators.required]),
+      genre: this.fb.control([]),
+      movOrTv: this.fb.control(null, [Validators.required]),
       tvDuration: this.fb.control(null, [
         Validators.required,
         Validators.min(5),
@@ -84,6 +103,7 @@ export class UploadFilmComponent {
         Validators.min(60),
         Validators.maxLength(190),
       ]),
+      rating: this.fb.control(1, [Validators.min(1)]),
     });
   }
   ngOnInit() {

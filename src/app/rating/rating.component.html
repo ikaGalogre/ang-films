@@ -1,0 +1,17 @@
+<div class="content">
+  <div
+    class="strContainer"
+    *ngFor="let star of stars; let i = index"
+    (mouseenter)="enter(i)"
+    (mouseleave)="leave()"
+    (click)="select(i)"
+    [class.disabled]="disabled"
+  >
+    <span
+      class="fa fa-star"
+      [ngClass]="getStarClass(i)"
+      [class.self]="isHovered(i)"
+    ></span>
+  </div>
+  <span>{{ rating }} / {{ stars.length }}</span>
+</div>

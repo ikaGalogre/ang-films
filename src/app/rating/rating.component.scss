@@ -1,0 +1,26 @@
+.strContainer {
+  display: inline-block;
+  cursor: pointer;
+  span {
+    font-size: 30px;
+    margin-right: 5px;
+    color: rgb(208, 208, 208);
+    transition: scale 0.2s;
+
+    &.active {
+      color: rgb(247, 194, 0);
+    }
+    &:hover {
+      transition: scale 0.2s;
+    }
+    &.hovered {
+      color: rgb(247, 194, 0);
+      &.self {
+        scale: 1.2;
+      }
+    }
+  }
+}
+.content {
+  margin: 10px 0;
+}

@@ -16,6 +16,8 @@ import { DetailsComponent } from './details/details.component';
 import { UploadFilmComponent } from './upload-film/upload-film.component';
 import { CustomFilmComponent } from './custom-film/custom-film.component';
 import { CountriesPipe } from './countries.pipe';
+import { RatingComponent } from './rating/rating.component';
+import { GenresComponent } from './genres/genres.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { CountriesPipe } from './countries.pipe';
     UploadFilmComponent,
     CustomFilmComponent,
     CountriesPipe,
+    RatingComponent,
+    GenresComponent,
   ],
   imports: [
     BrowserModule,
